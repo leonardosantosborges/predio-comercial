@@ -58,65 +58,109 @@
 
           <div class="entry-toolbar">
             <div>
-              <p class="eyebrow">Cadastros do andar</p>
+              <p class="eyebrow">Itens cadastrados</p>
               <p id="entry-count">0 itens</p>
             </div>
-            <button id="add-entry" type="button">Adicionar item</button>
+            <button id="add-entry" type="button">Novo item</button>
           </div>
 
           <div id="entry-list" class="entry-list"></div>
 
           <form id="entry-form" class="floor-form">
-            <div class="form-grid">
+            <section class="form-section">
+              <div class="form-section-head">
+                <span class="step-number">1</span>
+                <div>
+                  <p class="eyebrow">Dados principais</p>
+                  <h3>Identifique o que existe neste andar</h3>
+                  <p>Use um nome curto e uma categoria fácil de reconhecer na consulta pública.</p>
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <label>
+                  <span>Nome público</span>
+                  <input id="name-input" type="text" placeholder="Ex: Café Central" />
+                </label>
+
+                <label>
+                  <span>Categoria</span>
+                  <select id="category-input">
+                    <option value="Cafeteria">Cafeteria</option>
+                    <option value="Loja">Loja</option>
+                    <option value="Serviço">Serviço</option>
+                    <option value="Empresa">Empresa</option>
+                    <option value="Restaurante">Restaurante</option>
+                    <option value="Saúde">Saúde</option>
+                    <option value="Outro">Outro</option>
+                  </select>
+                </label>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <div class="form-section-head">
+                <span class="step-number">2</span>
+                <div>
+                  <p class="eyebrow">Conteúdo público</p>
+                  <h3>Descrição e imagem</h3>
+                  <p>A imagem aparece em destaque na tela pública quando este item estiver visível.</p>
+                </div>
+              </div>
+
               <label>
-                <span>Nome exibido</span>
-                <input id="name-input" type="text" placeholder="Ex: Café Central" />
+                <span>Descrição</span>
+                <textarea id="description-input" rows="5" placeholder="Ex: Cafeteria com lanches rápidos, cafés especiais e mesas para reunião."></textarea>
               </label>
 
               <label>
-                <span>Tipo</span>
-                <select id="category-input">
-                  <option value="Cafeteria">Cafeteria</option>
-                  <option value="Loja">Loja</option>
-                  <option value="Serviço">Serviço</option>
-                  <option value="Empresa">Empresa</option>
-                  <option value="Restaurante">Restaurante</option>
-                  <option value="Saúde">Saúde</option>
-                  <option value="Outro">Outro</option>
-                </select>
+                <span>URL da imagem</span>
+                <input id="image-input" type="url" placeholder="https://exemplo.com/imagem.jpg" />
               </label>
-            </div>
+            </section>
 
-            <label>
-              <span>Descrição</span>
-              <textarea id="description-input" rows="5" placeholder="Descreva este item"></textarea>
-            </label>
+            <section class="form-section">
+              <div class="form-section-head">
+                <span class="step-number">3</span>
+                <div>
+                  <p class="eyebrow">Publicação</p>
+                  <h3>Defina como o item será exibido</h3>
+                  <p>Itens privados aparecem para visitantes apenas como ocupados.</p>
+                </div>
+              </div>
 
-            <div class="form-grid">
-              <label>
-                <span>Imagem por URL</span>
-                <input id="image-input" type="url" placeholder="https://..." />
-              </label>
+              <div class="form-grid">
+                <label>
+                  <span>Visibilidade</span>
+                  <select id="status-input">
+                    <option value="public">Público</option>
+                    <option value="hidden">Privado / oculto</option>
+                  </select>
+                </label>
 
-              <label>
-                <span>Visibilidade</span>
-                <select id="status-input">
-                  <option value="public">Público</option>
-                  <option value="hidden">Ocupado oculto</option>
-                </select>
-              </label>
-            </div>
+                <label class="checkbox-row featured-row">
+                  <input id="featured-input" type="checkbox" />
+                  <span>Destacar este item no andar</span>
+                </label>
+              </div>
+            </section>
 
-            <label class="checkbox-row">
-              <input id="featured-input" type="checkbox" />
-              <span>Destacar este item nos resultados</span>
-            </label>
+            <section class="form-section form-section-actions">
+              <div class="form-section-head">
+                <span class="step-number">4</span>
+                <div>
+                  <p class="eyebrow">Ações</p>
+                  <h3>Salvar alterações</h3>
+                  <p>Salvar altera apenas o item selecionado. Limpar andar remove todos os itens deste andar.</p>
+                </div>
+              </div>
 
-            <div class="form-actions">
-              <button type="submit">Salvar item</button>
-              <button id="delete-entry" class="danger-button" type="button">Excluir item</button>
-              <button id="clear-floor" class="ghost-button" type="button">Limpar andar</button>
-            </div>
+              <div class="form-actions">
+                <button type="submit">Salvar item</button>
+                <button id="delete-entry" class="danger-button" type="button">Excluir item</button>
+                <button id="clear-floor" class="ghost-button" type="button">Limpar andar</button>
+              </div>
+            </section>
           </form>
 
           <div class="preview-block">

@@ -44,7 +44,7 @@ function floorSummary(floor) {
 
   if (!total) return "Sem cadastro";
   if (hidden === total) return `${total} oculto${total === 1 ? "" : "s"}`;
-  return `${total} item${total === 1 ? "" : "s"}`;
+  return total === 1 ? "1 item" : `${total} itens`;
 }
 
 function publicName(entry) {
@@ -126,12 +126,12 @@ function renderAdminList() {
 function renderEntryList() {
   const floor = currentFloorData();
   entryList.innerHTML = "";
-  entryCount.textContent = `${floor.entries.length} item${floor.entries.length === 1 ? "" : "s"}`;
+  entryCount.textContent = floor.entries.length === 1 ? "1 item" : `${floor.entries.length} itens`;
 
   if (!floor.entries.length) {
     const empty = document.createElement("p");
     empty.className = "entry-empty";
-    empty.textContent = "Este andar ainda não possui itens cadastrados.";
+    empty.textContent = "Este andar ainda não possui itens. Clique em Novo item para cadastrar.";
     entryList.appendChild(empty);
     return;
   }
@@ -140,6 +140,7 @@ function renderEntryList() {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "entry-button";
+    button.dataset.status = entry.status;
 
     if (entry.id === currentEntryId) {
       button.classList.add("is-active");
@@ -149,7 +150,7 @@ function renderEntryList() {
     title.textContent = adminName(entry);
 
     const meta = document.createElement("span");
-    meta.textContent = entry.status === "hidden" ? "Ocupado oculto" : entry.category;
+    meta.textContent = entry.status === "hidden" ? "Privado / oculto" : entry.category;
 
     button.append(title, meta);
 
@@ -206,7 +207,7 @@ function renderPreview() {
   if (!item) {
     const empty = document.createElement("div");
     empty.className = "empty-state";
-    empty.textContent = "Adicione um item para visualizar a prévia pública.";
+    empty.textContent = "Selecione ou crie um item para visualizar como ele aparece para visitantes.";
     preview.appendChild(empty);
     return;
   }

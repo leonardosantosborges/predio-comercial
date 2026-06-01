@@ -651,8 +651,58 @@ img {
 
 .floor-form {
   display: grid;
-  gap: 16px;
+  gap: 14px;
   padding: 18px;
+}
+
+.form-section {
+  display: grid;
+  gap: 14px;
+  border: 1px solid rgba(232, 203, 184, 0.92);
+  border-radius: 16px;
+  background: #ffffff;
+  padding: 16px;
+  box-shadow: 0 8px 18px rgba(96, 55, 28, 0.05);
+}
+
+.form-section-head {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.form-section-head h3,
+.form-section-head p {
+  margin: 0;
+}
+
+.form-section-head h3 {
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.form-section-head p:last-child {
+  margin-top: 4px;
+  color: var(--muted-warm);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.step-number {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--orange-soft);
+  color: var(--orange-dark);
+  font-family: "Fraunces", serif;
+  font-weight: 700;
+}
+
+.form-section-actions {
+  background: linear-gradient(135deg, #fff7ef, #ffffff);
 }
 
 .form-grid {
@@ -665,6 +715,15 @@ img {
   display: flex !important;
   grid-template-columns: none;
   align-items: center;
+}
+
+.featured-row {
+  align-content: end;
+  min-height: 46px;
+  border: 1px solid rgba(232, 203, 184, 0.92);
+  border-radius: 8px;
+  background: #fffaf4;
+  padding: 0 14px;
 }
 
 .checkbox-row input {
@@ -1311,6 +1370,18 @@ img {
   border-color: var(--orange);
   background: #fff4ea;
   box-shadow: 0 10px 22px rgba(240, 100, 47, 0.12);
+}
+
+.entry-button[data-status="hidden"] {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      rgba(232, 203, 184, 0.18),
+      rgba(232, 203, 184, 0.18) 6px,
+      rgba(255, 255, 255, 0.75) 6px,
+      rgba(255, 255, 255, 0.75) 12px
+    ),
+    #ffffff;
 }
 
 .entry-button span,

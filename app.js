@@ -136,7 +136,9 @@ function renderBuilding() {
         ? "Sem cadastro"
         : status === "hidden"
           ? "Empresa não divulgada"
-          : `${floor.entries.length} item${floor.entries.length === 1 ? "" : "s"} neste andar`;
+          : floor.entries.length === 1
+            ? "1 item neste andar"
+            : `${floor.entries.length} itens neste andar`;
 
     info.append(name, description);
 
@@ -239,13 +241,13 @@ function createDirectoryCard(item) {
   return article;
 }
 
-function renderDetail(items) {
+function renderDetail(entries) {
   selectedDetail.innerHTML = "";
 
   const item =
-    items.find((entry) => entry.status === "public" && entry.featured) ||
-    items.find((entry) => entry.status === "public") ||
-    items[0];
+    entries.find((entry) => entry.status === "public" && entry.featured) ||
+    entries.find((entry) => entry.status === "public") ||
+    entries[0];
 
   if (!item) return;
 
@@ -300,7 +302,7 @@ function renderDetail(items) {
   const meta = document.createElement("div");
   meta.className = "detail-meta";
   meta.appendChild(makeMetaBlock("Categoria", item.status === "empty" ? "Sem cadastro" : item.category));
-  meta.appendChild(makeMetaBlock("Itens no filtro", String(items.length)));
+  meta.appendChild(makeMetaBlock("Itens no filtro", String(entries.length)));
   meta.appendChild(makeMetaBlock("Consulta", selectedFloor ? "Andar selecionado" : "Todos os andares"));
 
   body.append(description, meta);
