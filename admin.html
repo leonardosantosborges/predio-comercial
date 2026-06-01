@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciamento • Guia do Prédio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Área privada</p>
+        <h1>Gerenciamento dos andares</h1>
+      </div>
+      <a class="admin-link" href="index.html" aria-label="Voltar para consulta">
+        <span aria-hidden="true">←</span>
+        Consulta
+      </a>
+    </header>
+
+    <main class="admin-shell">
+      <section id="login-card" class="login-card">
+        <div>
+          <p class="eyebrow">Acesso</p>
+          <h2>Entrar no painel</h2>
+          <p>Senha demonstrativa: <strong>admin123</strong></p>
+        </div>
+        <form id="login-form" class="login-form">
+          <label>
+            <span>Senha</span>
+            <input id="password-input" type="password" autocomplete="current-password" required />
+          </label>
+          <button type="submit">Entrar</button>
+          <p id="login-error" class="form-error" role="alert"></p>
+        </form>
+      </section>
+
+      <section id="admin-panel" class="admin-panel is-hidden">
+        <aside class="admin-list">
+          <div class="admin-list-head">
+            <div>
+              <p class="eyebrow">Seleção</p>
+              <h2>29 andares</h2>
+            </div>
+            <button id="reset-data" class="ghost-button" type="button">Restaurar demo</button>
+          </div>
+          <div id="admin-floor-list" class="admin-floor-list"></div>
+        </aside>
+
+        <section class="editor-panel">
+          <div class="editor-head">
+            <div>
+              <p class="eyebrow">Edição</p>
+              <h2 id="editor-title">Andar 1</h2>
+            </div>
+            <span id="save-state" class="save-state">Pronto</span>
+          </div>
+
+          <div class="entry-toolbar">
+            <div>
+              <p class="eyebrow">Cadastros do andar</p>
+              <p id="entry-count">0 itens</p>
+            </div>
+            <button id="add-entry" type="button">Adicionar item</button>
+          </div>
+
+          <div id="entry-list" class="entry-list"></div>
+
+          <form id="entry-form" class="floor-form">
+            <div class="form-grid">
+              <label>
+                <span>Nome exibido</span>
+                <input id="name-input" type="text" placeholder="Ex: Café Central" />
+              </label>
+
+              <label>
+                <span>Tipo</span>
+                <select id="category-input">
+                  <option value="Cafeteria">Cafeteria</option>
+                  <option value="Loja">Loja</option>
+                  <option value="Serviço">Serviço</option>
+                  <option value="Empresa">Empresa</option>
+                  <option value="Restaurante">Restaurante</option>
+                  <option value="Saúde">Saúde</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              <span>Descrição</span>
+              <textarea id="description-input" rows="5" placeholder="Descreva este item"></textarea>
+            </label>
+
+            <div class="form-grid">
+              <label>
+                <span>Imagem por URL</span>
+                <input id="image-input" type="url" placeholder="https://..." />
+              </label>
+
+              <label>
+                <span>Visibilidade</span>
+                <select id="status-input">
+                  <option value="public">Público</option>
+                  <option value="hidden">Ocupado oculto</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="checkbox-row">
+              <input id="featured-input" type="checkbox" />
+              <span>Destacar este item nos resultados</span>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit">Salvar item</button>
+              <button id="delete-entry" class="danger-button" type="button">Excluir item</button>
+              <button id="clear-floor" class="ghost-button" type="button">Limpar andar</button>
+            </div>
+          </form>
+
+          <div class="preview-block">
+            <p class="eyebrow">Prévia pública</p>
+            <div id="admin-preview"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

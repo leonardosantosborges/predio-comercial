@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guia do Prédio Comercial</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="public-shell">
+      <section class="public-layout" aria-label="Diretório público">
+        <aside class="public-sidebar">
+          <header class="public-sidebar-header">
+            <p class="eyebrow">Torre comercial</p>
+            <h1>Prédio Comercial</h1>
+            <p>29 andares • Guia para visitantes</p>
+          </header>
+
+          <div class="public-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="search-input" type="search" placeholder="Buscar serviço ou andar..." />
+          </div>
+
+          <div class="public-filters" aria-label="Filtros">
+            <label>
+              <span>Tipo</span>
+              <select id="type-filter">
+                <option value="all">Todos</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Visibilidade</span>
+              <select id="visibility-filter">
+                <option value="all">Todos</option>
+                <option value="public">Públicos</option>
+                <option value="hidden">Privados</option>
+                <option value="empty">Sem cadastro</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="building-head">
+            <p class="eyebrow">Andares</p>
+            <button id="clear-floor-filter" class="text-button" type="button">Todos</button>
+          </div>
+          <div id="building-floors" class="public-floor-list"></div>
+        </aside>
+
+        <section class="public-main">
+          <div id="selected-detail" class="public-detail"></div>
+
+          <div class="public-results-head">
+            <div>
+              <p class="eyebrow">Resultado</p>
+              <h2 id="results-title">Todos os andares</h2>
+            </div>
+            <div class="public-counters">
+              <span><strong id="summary-open">0</strong> visíveis</span>
+              <span><strong id="summary-hidden">0</strong> privados</span>
+              <span id="result-count">0 resultados</span>
+            </div>
+          </div>
+
+          <div id="floor-list" class="floor-list" aria-live="polite"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
