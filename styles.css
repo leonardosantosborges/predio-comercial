@@ -711,6 +711,9 @@ img {
 
 .public-sidebar {
   display: flex;
+  position: sticky;
+  top: 18px;
+  max-height: calc(100vh - 36px);
   min-height: 0;
   flex-direction: column;
   border-right: 1px solid var(--line-warm);
@@ -824,6 +827,7 @@ img {
   display: grid;
   gap: 5px;
   overflow: auto;
+  overscroll-behavior: contain;
   padding: 4px 10px 14px;
 }
 
@@ -934,9 +938,14 @@ img {
 
 .public-main {
   display: flex;
+  position: sticky;
+  top: 18px;
+  max-height: calc(100vh - 36px);
   min-width: 0;
   flex-direction: column;
   background: #fff8ef;
+  overflow: auto;
+  overscroll-behavior: contain;
 }
 
 .public-detail {
@@ -1282,6 +1291,8 @@ img {
   }
 
   .public-sidebar {
+    position: static;
+    max-height: none;
     border-right: 0;
     border-bottom: 1px solid var(--line-warm);
   }
@@ -1325,7 +1336,10 @@ img {
   }
 
   .public-main {
+    position: static;
+    max-height: none;
     min-height: 0;
+    overflow: visible;
   }
 
   .detail-body {
