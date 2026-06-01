@@ -272,6 +272,20 @@ function renderDetail(items) {
   content.append(tag, title, status);
   hero.append(floorNumber, content);
 
+  if (item.status === "public" && item.image) {
+    hero.classList.add("has-visual");
+
+    const visual = document.createElement("figure");
+    visual.className = "detail-visual";
+
+    const image = document.createElement("img");
+    image.src = item.image;
+    image.alt = item.name;
+
+    visual.appendChild(image);
+    hero.appendChild(visual);
+  }
+
   const body = document.createElement("div");
   body.className = "detail-body";
 
