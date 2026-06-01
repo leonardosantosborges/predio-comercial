@@ -7,7 +7,7 @@ Projeto estático para consulta pública por QR code e gerenciamento privado dos
 Rode o servidor local:
 
 ```bash
-npm start
+npm run dev
 ```
 
 Depois acesse:
@@ -73,7 +73,7 @@ Configuração recomendada:
 - Output Directory: `dist`
 - Install Command: vazio ou padrão do Vercel
 
-O arquivo `vercel.json` já define `buildCommand`, `outputDirectory`, URL limpa e reescreve `/admin` para `/admin.html`.
+O arquivo `vercel.json` força build estático com `@vercel/static-build` e reescreve `/admin` para `/admin.html`.
 
 ## Observação de segurança
 
