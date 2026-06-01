@@ -20,6 +20,12 @@ const addEntry = document.querySelector("#add-entry");
 const deleteEntry = document.querySelector("#delete-entry");
 const entryList = document.querySelector("#entry-list");
 const preview = document.querySelector("#admin-preview");
+const feedbackModal = document.querySelector("#feedback-modal");
+const feedbackTitle = document.querySelector("#feedback-title");
+const feedbackMessage = document.querySelector("#feedback-message");
+const feedbackClose = document.querySelector("#feedback-close");
+
+let feedbackTimer = null;
 
 const inputs = {
   name: document.querySelector("#name-input"),
@@ -67,6 +73,17 @@ function makeBlankEntry() {
     status: "public",
     featured: false,
   });
+}
+
+function showFeedback(title, message) {
+  feedbackTitle.textContent = title;
+  feedbackMessage.textContent = message;
+  feedbackModal.classList.remove("is-hidden");
+
+  clearTimeout(feedbackTimer);
+  feedbackTimer = setTimeout(() => {
+    feedbackModal.classList.add("is-hidden");
+  }, 2600);
 }
 
 function showAdmin() {
@@ -292,6 +309,7 @@ function persistCurrentEntry() {
   renderPreview();
 
   saveState.textContent = "Salvo";
+  showFeedback("Item salvo", "As alterações deste item já aparecem na consulta pública.");
   setTimeout(() => {
     saveState.textContent = "Pronto";
   }, 1200);
@@ -333,6 +351,7 @@ addEntry.addEventListener("click", () => {
   saveFloors(floors);
   renderAdminList();
   loadEditor();
+  showFeedback("Item criado", "Preencha os dados do novo item e clique em Salvar item.");
 });
 
 deleteEntry.addEventListener("click", () => {
@@ -351,6 +370,7 @@ deleteEntry.addEventListener("click", () => {
   saveFloors(floors);
   renderAdminList();
   loadEditor();
+  showFeedback("Item excluído", "O item foi removido deste andar.");
 });
 
 clearFloor.addEventListener("click", () => {
@@ -366,6 +386,7 @@ clearFloor.addEventListener("click", () => {
   saveFloors(floors);
   renderAdminList();
   loadEditor();
+  showFeedback("Andar limpo", "Todos os itens deste andar foram removidos.");
 });
 
 resetData.addEventListener("click", () => {
@@ -375,8 +396,14 @@ resetData.addEventListener("click", () => {
   ensureSelectedEntry();
   renderAdminList();
   loadEditor();
+  showFeedback("Demo restaurada", "Os dados de demonstração foram carregados novamente.");
 });
 
 if (sessionStorage.getItem("predio-admin-auth") === "true") {
   showAdmin();
 }
+
+feedbackClose.addEventListener("click", () => {
+  clearTimeout(feedbackTimer);
+  feedbackModal.classList.add("is-hidden");
+});
