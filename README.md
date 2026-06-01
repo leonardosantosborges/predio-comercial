@@ -16,6 +16,14 @@ Depois acesse:
 http://127.0.0.1:4173
 ```
 
+Para gerar o pacote estático usado pela Vercel:
+
+```bash
+npm run build
+```
+
+Isso cria a pasta `dist/`.
+
 A tela pública não mostra botão de gerenciamento. Para acessar o painel privado, abra diretamente:
 
 ```text
@@ -62,10 +70,10 @@ Configuração recomendada:
 
 - Framework Preset: `Other`
 - Build Command: `npm run build`
-- Output Directory: `.`
+- Output Directory: `dist`
 - Install Command: vazio ou padrão do Vercel
 
-O arquivo `vercel.json` já habilita URL limpa e reescreve `/admin` para `/admin.html`.
+O arquivo `vercel.json` já define `buildCommand`, `outputDirectory`, URL limpa e reescreve `/admin` para `/admin.html`.
 
 ## Observação de segurança
 

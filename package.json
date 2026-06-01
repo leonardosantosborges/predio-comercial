@@ -6,6 +6,6 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "build": "node -e \"console.log('Static site ready for Vercel')\""
+    "build": "node scripts/build.mjs"
   }
 }
