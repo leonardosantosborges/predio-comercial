@@ -1134,121 +1134,223 @@ img {
   box-shadow: 0 10px 22px rgba(30, 23, 18, 0.14);
 }
 
-/* Admin surface aligned with the same visual system */
+/* Admin surface */
 .admin-shell {
-  width: min(1180px, calc(100% - 28px));
+  width: min(1220px, calc(100% - 28px));
 }
 
-.admin-shell .login-card,
-.admin-panel {
-  border-color: var(--line-warm);
-  background: var(--cream);
+.topbar {
+  border-bottom-color: rgba(232, 203, 184, 0.9);
+  background: rgba(255, 250, 244, 0.92);
+}
+
+.topbar h1,
+.login-card h2,
+.admin-list-head h2,
+.editor-head h2 {
+  color: var(--ink);
+  font-family: "Fraunces", serif;
+  letter-spacing: 0;
+}
+
+.topbar .eyebrow,
+.login-card .eyebrow,
+.admin-list-head .eyebrow,
+.editor-head .eyebrow,
+.entry-toolbar .eyebrow,
+.preview-block .eyebrow {
+  color: var(--orange-dark);
+  letter-spacing: 0.12em;
+}
+
+.admin-link {
+  border: 1px solid rgba(240, 100, 47, 0.24);
+  background: var(--orange);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(240, 100, 47, 0.18);
+}
+
+.login-card {
+  border-color: rgba(232, 203, 184, 0.92);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 224, 194, 0.6), rgba(255, 255, 255, 0.94)),
+    var(--paper);
+  box-shadow: 0 22px 52px rgba(96, 55, 28, 0.13);
+}
+
+.login-card p {
+  color: var(--muted-warm);
 }
 
 .admin-panel {
-  grid-template-columns: 250px minmax(0, 1fr);
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 0;
   overflow: hidden;
-  border: 1px solid var(--line-warm);
-  border-radius: 14px;
-  box-shadow: 0 18px 40px rgba(30, 23, 18, 0.08);
+  border: 1px solid rgba(232, 203, 184, 0.92);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: 0 22px 52px rgba(96, 55, 28, 0.14);
 }
 
 .admin-panel .admin-list {
   border: 0;
+  border-right: 1px solid rgba(232, 203, 184, 0.92);
   border-radius: 0;
-  background: var(--ink);
+  background: #fffefd;
   box-shadow: none;
 }
 
 .admin-panel .editor-panel {
   border: 0;
-  border-left: 1px solid var(--line-warm);
   border-radius: 0;
-  background: var(--cream);
+  background: #fff8ef;
   box-shadow: none;
 }
 
+.admin-list-head,
+.editor-head,
+.entry-toolbar {
+  border-bottom-color: rgba(232, 203, 184, 0.92);
+  background: var(--paper);
+}
+
 .admin-list-head {
-  border-bottom-color: #2e2720;
-  background: var(--ink);
+  background:
+    linear-gradient(135deg, rgba(255, 224, 194, 0.62), rgba(255, 255, 255, 0.96)),
+    var(--paper);
 }
 
-.admin-list-head h2,
-.admin-list-head .eyebrow {
-  color: #ffffff;
+.admin-list-head .ghost-button,
+.ghost-button {
+  border-color: rgba(232, 203, 184, 0.95);
+  background: #ffffff;
+  color: var(--muted-warm);
 }
 
-.admin-list-head .ghost-button {
-  border-color: rgba(224, 114, 48, 0.24);
-  background: rgba(224, 114, 48, 0.16);
-  color: var(--orange);
+.admin-floor-list {
+  background: #fffefd;
 }
 
 .admin-floor-button {
-  border-bottom-color: #2e2720;
-  background: var(--ink);
-  color: #d4c4b0;
+  min-height: 58px;
+  border-bottom-color: rgba(232, 203, 184, 0.55);
+  background: #fffefd;
+  color: var(--ink);
+}
+
+.admin-floor-button:hover {
+  background: #fff4ea;
 }
 
 .admin-floor-button strong {
-  color: var(--orange);
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 10px;
+  background: var(--orange-soft);
+  color: var(--orange-dark);
   font-family: "Fraunces", serif;
 }
 
 .admin-floor-button span {
-  color: #8a7060;
+  color: var(--muted-warm);
+  font-weight: 750;
 }
 
 .admin-floor-button.is-active {
-  background: #2e2418;
+  background: linear-gradient(135deg, #fff4ea, #ffffff);
+  box-shadow: inset 4px 0 0 var(--orange);
 }
 
-.editor-head,
 .entry-toolbar {
-  border-bottom-color: var(--line-warm);
-  background: var(--paper);
+  background: #fffefd;
 }
 
-.editor-head h2 {
-  font-family: "Fraunces", serif;
-  color: var(--ink);
-}
-
-.save-state,
-.entry-button,
-.floor-form input,
-.floor-form select,
-.floor-form textarea,
-.preview-block .floor-card {
-  border-color: var(--line-warm);
+.entry-toolbar p:last-child {
+  color: var(--muted-warm);
 }
 
 .entry-toolbar button,
 .form-actions button:not(.ghost-button):not(.danger-button),
 .login-form button {
   background: var(--orange);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(240, 100, 47, 0.18);
+}
+
+.save-state {
+  border: 1px solid rgba(0, 127, 104, 0.18);
+  background: var(--teal-soft);
+  color: var(--teal);
 }
 
 .entry-list,
 .floor-form,
 .preview-block {
-  background: var(--cream);
+  background: #fff8ef;
+}
+
+.entry-list {
+  border-bottom-color: rgba(232, 203, 184, 0.92);
 }
 
 .entry-button {
-  background: var(--paper);
+  border-color: rgba(232, 203, 184, 0.9);
+  background: #ffffff;
+  box-shadow: 0 8px 18px rgba(96, 55, 28, 0.06);
+}
+
+.entry-button:hover {
+  border-color: #ffb57d;
+  background: #fffaf4;
 }
 
 .entry-button.is-active {
   border-color: var(--orange);
-  background: #fff7f0;
+  background: #fff4ea;
+  box-shadow: 0 10px 22px rgba(240, 100, 47, 0.12);
+}
+
+.entry-button span,
+.entry-empty {
+  color: var(--muted-warm);
 }
 
 .floor-form input,
 .floor-form select,
 .floor-form textarea,
 .login-form input {
-  background: var(--paper);
+  border-color: rgba(232, 203, 184, 0.95);
+  background: #ffffff;
+  color: var(--ink);
+}
+
+.floor-form input:focus,
+.floor-form select:focus,
+.floor-form textarea:focus,
+.login-form input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(240, 100, 47, 0.14);
+}
+
+.floor-form label,
+.login-form label {
+  color: var(--muted-warm);
+}
+
+.danger-button {
+  border-color: rgba(180, 35, 24, 0.22);
+  background: #fff4f2;
+  color: var(--danger);
+}
+
+.preview-block .floor-card {
+  border-color: rgba(232, 203, 184, 0.95);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(96, 55, 28, 0.08);
 }
 
 @media (max-width: 900px) {
@@ -1474,6 +1576,11 @@ img {
     border-left: 0;
   }
 
+  .admin-panel .admin-list {
+    border-right: 0;
+    border-bottom: 1px solid rgba(232, 203, 184, 0.92);
+  }
+
   .admin-list-head,
   .editor-head,
   .entry-toolbar {
@@ -1487,5 +1594,11 @@ img {
 
   .entry-list {
     grid-template-columns: 1fr;
+  }
+
+  .form-actions button,
+  .ghost-button,
+  .danger-button {
+    width: 100%;
   }
 }
